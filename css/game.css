@@ -1,9 +1,12 @@
-#canvas1 {
-  width: 800px;
+.wrapper {
+  position: relative;
+  width: 1000px;
   height: 500px;
+}
+
+.wrapper canvas {
   border: 1px solid black;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  background-image: url("../images/background.png");
 }
