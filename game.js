@@ -1,12 +1,13 @@
+let life = 1;
 var enemyYPositions = [];
 var enemyXPositions = [];
 var enemyImage;
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
+let canvas = document.getElementById('gameCanvas');
+let ctx = canvas.getContext('2d');
 let keys = "";
 const player = {
-    x: 400,
-    y: 200,
+    x: 600,
+    y: 500,
     width: 90,
     height: 90,
     frameX: 0,
@@ -27,7 +28,7 @@ function setUpGame() {
         handlePlayerFrame();
         handleTick();
         drawSprite(playerSprite, (player.width * player.frameX), (player.height * player.frameY), player.width, player.height, player.x, player.y, player.width, player.height);
-    }, 25);
+    }, 15);
 }
 
 function handleTick() {
@@ -37,7 +38,7 @@ function handleTick() {
 	if (Math.random() < 1/20)
 	{
 		enemyYPositions.push(0);
-		enemyXPositions.push(Math.random() * 900);
+		enemyXPositions.push(Math.random() * 1100);
 	}
 
 	while (currentEnemyNumber < numberOfEnemies) {
@@ -45,7 +46,8 @@ function handleTick() {
 		currentEnemyNumber = currentEnemyNumber + 1;
 	}
 	
-	canvas.width = 1000;
+    canvas.width = 1270;
+    canvas.height = 630;
 	
 	currentEnemyNumber = 0;
 	while (currentEnemyNumber < numberOfEnemies) {
@@ -55,11 +57,15 @@ function handleTick() {
 	
 	currentEnemyNumber = 0;
 	while (currentEnemyNumber < numberOfEnemies) {
-		if ( ( (player.x < enemyXPositions[currentEnemyNumber] && enemyXPositions[currentEnemyNumber] < player.x + 30) || (enemyXPositions[currentEnemyNumber] < player.x && player.x < enemyXPositions[currentEnemyNumber] + 30) ) && ( (player.y < enemyYPositions[currentEnemyNumber] && enemyYPositions[currentEnemyNumber] < player.y + 33) || (enemyYPositions[currentEnemyNumber] < player.y && player.y < enemyYPositions[currentEnemyNumber] + 30) ) ) {
-			console.log("You loose !");
-		}
-		currentEnemyNumber = currentEnemyNumber + 1;
-	}	
+        
+        if ( ( (player.x < enemyXPositions[currentEnemyNumber] && enemyXPositions[currentEnemyNumber] < player.x + 30) || (enemyXPositions[currentEnemyNumber] < player.x && player.x < enemyXPositions[currentEnemyNumber] + 30) ) && ( (player.y < enemyYPositions[currentEnemyNumber] && enemyYPositions[currentEnemyNumber] < player.y + 33) || (enemyYPositions[currentEnemyNumber] < player.y && player.y < enemyYPositions[currentEnemyNumber] + 30) ) ) 
+        {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            alert ("LOOSER !")
+            document.location.reload(canvas);
+        }
+        currentEnemyNumber = currentEnemyNumber + 1;
+    }
 }
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {

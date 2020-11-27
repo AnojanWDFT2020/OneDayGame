@@ -1,0 +1,44 @@
+@font-face {
+  font-family: triforce;
+  src: url(../images/HyliaSerifBeta-Regular.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrap {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  width: 1270px;
+  height: 630px;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/mainPage.jpg");
+  background-size: cover;
+}
+
+.title h1 {
+  font-family: "triforce";
+  font-size: 4em;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-shadow: 0 4px 0 #545858, 0 -4px 0 #d4d3d3;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.title h1:hover {
+  color: rgba(197, 181, 37, 0.986);
+}
