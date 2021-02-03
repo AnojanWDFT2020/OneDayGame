@@ -54,7 +54,7 @@ function handleTick() {
 
   if (Math.random() < 1 / 20) {
     enemyYPositions.push(0);
-    enemyXPositions.push(Math.random() * 1100);
+    enemyXPositions.push(Math.random() * 1270);
   }
 
   while (currentEnemyNumber < numberOfEnemies) {
